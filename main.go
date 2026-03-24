@@ -10,6 +10,8 @@ type User struct {
 	Email string `json:"email"`
 }
 
+var users []User
+
 func main() {
 	fmt.Println("Hello world")
 }
