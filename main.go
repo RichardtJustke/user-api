@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 )
 
 type User struct {
@@ -10,8 +11,11 @@ type User struct {
 	Email string `json:"email"`
 }
 
-var users []User
-
 func main() {
-	fmt.Println("Hello world")
+	// rota teste
+	http.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "pong")
+	})
+	fmt.Println("Servidor rodando em http://localhost:8081")
+	http.ListenAndServe(":8081", nil)
 }
